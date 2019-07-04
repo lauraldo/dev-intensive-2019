@@ -37,10 +37,6 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
  */
 fun Date.humanizeDiff(date: Date = Date()): String {
 
-    fun minutePlural(amount: Long) = Utils.declension(amount, "минута", "минуты", "минут")
-    fun hourPlural(amount: Long) = Utils.declension(amount, "час", "часа", "часов")
-    fun dayPlural(amount: Long) = Utils.declension(amount, "день", "дня", "дней")
-
     val delta = date.time - this.time
     return when {
         delta > 0 -> when (delta) {
