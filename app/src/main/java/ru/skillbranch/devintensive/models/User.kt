@@ -44,6 +44,7 @@ data class User(
 
     companion object Factory {
         private var lastId: Int = -1
+
         fun makeUser(fullName: String?): User {
             lastId++
 
