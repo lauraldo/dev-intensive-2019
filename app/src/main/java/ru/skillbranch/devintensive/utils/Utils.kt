@@ -94,7 +94,7 @@ object Utils {
      * @param predicate функция преобразования
      * @return Новая строка
      */
-    inline fun String.replaceChar(predicate: (String) -> String): String {
+    fun String.replaceChar(predicate: (String) -> String): String {
         val sb = StringBuilder()
         for (index in 0 until length) {
             val char = get(index)

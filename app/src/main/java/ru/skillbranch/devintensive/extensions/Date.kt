@@ -1,6 +1,5 @@
 package ru.skillbranch.devintensive.extensions
 
-import ru.skillbranch.devintensive.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
@@ -9,6 +8,8 @@ const val SECOND = 1000L
 const val MINUTE = SECOND * 60
 const val HOUR = MINUTE * 60
 const val DAY = 24 * HOUR
+
+operator fun Date.minus(other: Date) = this.time - other.time
 
 fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
