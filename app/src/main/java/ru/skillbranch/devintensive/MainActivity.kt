@@ -17,12 +17,12 @@ import ru.skillbranch.devintensive.models.Bender
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, TextView.OnEditorActionListener {
 
-    lateinit var benderImage: ImageView
-    lateinit var textTxt: TextView
-    lateinit var etMessage: EditText
-    lateinit var sendBtn: ImageView
+    private lateinit var benderImage: ImageView
+    private lateinit var textTxt: TextView
+    private lateinit var etMessage: EditText
+    private lateinit var sendBtn: ImageView
 
-    lateinit var benderObj: Bender
+    private lateinit var benderObj: Bender
 
     override fun onClick(v: View?) {
         if (v?.id == R.id.iv_send) {
