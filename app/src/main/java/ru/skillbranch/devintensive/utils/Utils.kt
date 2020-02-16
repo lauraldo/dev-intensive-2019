@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.utils
 
+import java.util.*
+
 object Utils {
 
     fun parseFullName(fullName: String?): Pair<String?, String?> {
@@ -27,7 +29,7 @@ object Utils {
      * @param divider - разделитель, по умолчанию пробел
      * @return Преобразованная строка из латинских символов
      */
-    fun transliteration(payload: String?, divider: String = " "): String? = payload?.replaceChar { src ->
+    fun transliteration(payload: String?, divider: String = " "): String? = payload?.trim()?.replaceChar { src ->
         when (src) {
             " " -> divider
             "а" -> "a"
@@ -94,12 +96,58 @@ object Utils {
      * @param predicate функция преобразования
      * @return Новая строка
      */
-    fun String.replaceChar(predicate: (String) -> String): String {
+    private fun String.replaceChar(predicate: (String) -> String): String {
         val sb = StringBuilder()
         for (index in 0 until length) {
             val char = get(index)
             sb.append(predicate(char.toString()))
         }
         return sb.toString()
+    }
+
+    private val githubExceptions = setOf("enterprise",
+        "features",
+        "topics",
+        "collections",
+        "trending",
+        "events",
+        "marketplace",
+        "pricing",
+        "nonprofit",
+        "customer-stories",
+        "security",
+        "login",
+        "join"
+    )
+
+    private val githubPrefixes = setOf(
+        "https://github.com/",
+        "https://www.github.com/",
+        "www.github.com/",
+        "github.com/"
+    )
+
+    fun isGithubUrlValid(url: String): Boolean {
+        if (url.isEmpty()) {
+            return true
+        }
+        val trimmedUrl = url.trim()
+        val prefix = githubPrefixes.filter { trimmedUrl.startsWith(it, true) }
+        if (prefix.isEmpty()) {
+            return false
+        } else {
+            var userName = trimmedUrl.replaceFirst(prefix[0], "", true)
+            if (userName.endsWith("/")) {
+                if (userName == "/") {
+                    return false
+                }
+                userName = userName.slice(0..userName.length - 2)
+            }
+            // Реальное валидное имя github-аккаунта
+            if (!userName.toLowerCase(Locale.ROOT).matches("^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}\$".toRegex())) {
+                return false
+            }
+            return !githubExceptions.contains(userName)
+        }
     }
 }
