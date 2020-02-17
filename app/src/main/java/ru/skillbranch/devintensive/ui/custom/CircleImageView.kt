@@ -200,6 +200,7 @@ class CircleImageView @JvmOverloads constructor(
         if (borderColor == color) {
             return
         }
+        borderColor = color
         borderPaint.color = borderColor
         invalidate()
     }
@@ -209,6 +210,7 @@ class CircleImageView @JvmOverloads constructor(
         if (borderColor == color) {
              return
         }
+        borderColor = color
         borderPaint.color = borderColor
         invalidate()
     }
