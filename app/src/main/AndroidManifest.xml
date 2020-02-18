@@ -12,7 +12,9 @@
             android:supportsRtl="true"
             android:theme="@style/SplashTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.profile.ProfileActivity">
+        <activity
+                android:name=".ui.profile.ProfileActivity"
+                android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
