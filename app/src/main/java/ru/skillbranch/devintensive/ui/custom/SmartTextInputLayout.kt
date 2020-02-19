@@ -24,7 +24,7 @@ class SmartTextInputLayout @JvmOverloads constructor(
             errorView?.let {
                 scrollView?.scrollDownTo(errorView)
             }
-        }, 160)
+        }, 450)
     }
 
     override fun setError(errorText: CharSequence?) {

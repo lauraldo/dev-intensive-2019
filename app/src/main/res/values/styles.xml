@@ -12,6 +12,7 @@
         <item name="android:enabled">false</item>
         <item name="android:focusableInTouchMode">false</item>
         <item name="android:focusable">false</item>
+        <item name="android:imeOptions">flagNoExtractUi</item>
     </style>
 
     <style name="Profile.EditText.Single" parent="Profile.EditText">
