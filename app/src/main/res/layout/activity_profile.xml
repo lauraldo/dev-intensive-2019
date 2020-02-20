@@ -265,18 +265,21 @@
     <ru.skillbranch.devintensive.ui.custom.SmartTextInputLayout
             android:id="@+id/wr_repository"
             style="@style/Profile.InfoItem"
-            android:hint="@string/profile_hint_repository"
             app:layout_constraintStart_toEndOf="@id/iv_repo"
             app:layout_constraintEnd_toStartOf="@id/iv_preview_mode"
             app:layout_constraintTop_toBottomOf="@id/profile_delimiter2"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
                 android:id="@+id/et_repository"
                 style="@style/Profile.EditText.Single"
+                android:hint="@string/profile_hint_repository"
+                android:inputType="textUri"
+                android:imeOptions="actionDone|flagNoExtractUi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no" />
 
     </ru.skillbranch.devintensive.ui.custom.SmartTextInputLayout>
 
