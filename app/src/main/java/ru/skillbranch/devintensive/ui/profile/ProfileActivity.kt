@@ -80,11 +80,6 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        et_repository.clearFocus()
-    }
-
     private fun initViews(savedInstanceState: Bundle?) {
 
         viewFields = mapOf(
