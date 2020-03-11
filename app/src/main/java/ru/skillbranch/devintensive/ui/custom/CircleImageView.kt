@@ -7,10 +7,10 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.AttributeSet
-import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
+import androidx.appcompat.widget.AppCompatImageView
 import ru.skillbranch.devintensive.R
 import kotlin.math.min
 
@@ -28,7 +28,7 @@ class CircleImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-): ImageView(context, attrs, defStyleAttr) {
+): AppCompatImageView(context, attrs, defStyleAttr) {
 
     private var bitmap: Bitmap? = null
     private var bitmapShader: BitmapShader? = null
@@ -54,6 +54,7 @@ class CircleImageView @JvmOverloads constructor(
             val a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView)
             borderColor = a.getColor(R.styleable.CircleImageView_cv_borderColor, DEFAULT_BORDER_COLOR)
             borderWidth = a.getDimensionPixelSize(R.styleable.CircleImageView_cv_borderWidth, defaultBorderWidthPx)
+            a.recycle()
         }
     }
 
